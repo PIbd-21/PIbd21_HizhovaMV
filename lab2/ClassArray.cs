@@ -4,30 +4,30 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LR4_TP
+namespace l_r_5_tp
 {
     class ClassArray<T> where T : IAnimals
     {
         private Dictionary<int, T> places;
         private int maxCount;
-        
+
         private T defaultValue;
 
         public ClassArray(int size, T defVal)
         {
             defaultValue = defVal;
-            places = new Dictionary<int,T>();
+            places = new Dictionary<int, T>();
             maxCount = size;
         }
 
-        
+
         public static int operator +(ClassArray<T> t, T Tarantul)
         {
             if (t.places.Count == t.maxCount)
             {
                 return -1;
             }
-            for(int i = 0; i < t.places.Count; i++)
+            for (int i = 0; i < t.places.Count; i++)
             {
                 if (t.CheckFreeTerra(i))
                 {

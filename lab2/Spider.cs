@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LR4_TP
+namespace l_r_5_tp
 {
     public abstract class Spider : IAnimals
     {
@@ -47,6 +47,9 @@ namespace LR4_TP
             return count;
         }
 
-        
+        public virtual void SetMainColor(Color color)
+        {
+            ColorBody = color;
+        }
     }
 }

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LR4_TP
+namespace l_r_5_tp
 {
     public class Tarantul : Spider
     {
