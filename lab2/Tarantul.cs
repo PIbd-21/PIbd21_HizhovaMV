@@ -5,9 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace l_r_3_tp
+namespace LR4_TP
 {
-
     public class Tarantul : Spider
     {
         private Color color;
