@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace l_r_5_tp
+namespace lr6_tarantul
 {
     public class Tarantul : Spider
     {
@@ -85,6 +85,23 @@ namespace l_r_5_tp
             startPosY = rand.Next(10, 200);
 
         }
+        public Tarantul(string info)
+        {
+            string[] strs = info.Split(';');
+            if (strs.Length == 4)
+            {
+                MaxSpeed = Convert.ToInt32(strs[0]);
+                MaxcountEaten = Convert.ToInt32(strs[1]);
+                Weight = Convert.ToInt32(strs[2]);
+                ColorBody = Color.FromName(strs[3]);
+            }
+
+            this.countEaten = 0;
+            Random rand = new Random();
+            startPosX = rand.Next(10, 200);
+            startPosY = rand.Next(10, 200);
+
+        }
 
         public override void moveTarantul(Graphics g)
         {
@@ -129,6 +146,12 @@ namespace l_r_5_tp
             g.FillEllipse(glaza, startPosX + 88, startPosY + 12, 8, 8);
 
 
+        }
+
+
+        public override string getInfo()
+        {
+            return MaxSpeed + ";" + MaxcountEaten + ";" + Weight + ";" + ColorBody.Name;
         }
     }
 }

@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace l_r_5_tp
+namespace lr6_tarantul
 {
     public partial class Form2 : Form
     {
@@ -34,11 +34,13 @@ namespace l_r_5_tp
             if (eventAddTarantul == null)
             {
                 eventAddTarantul = new myDel(ev);
-            }else
+            }
+            else
             {
                 eventAddTarantul += ev;
             }
         }
+
 
         public Form2()
         {
@@ -50,30 +52,46 @@ namespace l_r_5_tp
             Yellow.MouseDown += panelColor_MouseDown;
             Green.MouseDown += panelColor_MouseDown;
             Purple.MouseDown += panelColor_MouseDown;
-            Peach.MouseDown += panelColor_MouseDown;
+            Pearch.MouseDown += panelColor_MouseDown;
 
-            otmena.Click += (object sender, EventArgs e) => { Close(); };
+            button2.Click += (object sender, EventArgs e) => { Close(); };
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (eventAddTarantul != null)
+            {
+                eventAddTarantul(tarantul);
+            }
+            Close();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panelColor_MouseDown(object sender, MouseEventArgs e)
+        {
+            (sender as Control).DoDragDrop((sender as Control).BackColor,
+               DragDropEffects.Move | DragDropEffects.Copy);
         }
 
         private void NormalTarantul_MouseDown(object sender, MouseEventArgs e)
         {
             NormalTarantul.DoDragDrop(NormalTarantul.Text,
-                DragDropEffects.Move | DragDropEffects.Copy);
+                 DragDropEffects.Move | DragDropEffects.Copy);
         }
 
-
-        private void AddTarantul_DragEnter(object sender, DragEventArgs e)
+        private void PoisonousTarantul_MouseDown(object sender, MouseEventArgs e)
         {
-            if (e.Data.GetDataPresent(DataFormats.Text))
-                e.Effect = DragDropEffects.Copy;
-            else
-                e.Effect = DragDropEffects.None;
-
+            PoisonousTarantul.DoDragDrop(PoisonousTarantul.Text,
+               DragDropEffects.Move | DragDropEffects.Copy);
         }
 
         private void AddTarantul_DragDrop(object sender, DragEventArgs e)
         {
-            switch(e.Data.GetData(DataFormats.Text).ToString())
+            switch (e.Data.GetData(DataFormats.Text).ToString())
             {
                 case "Обычный":
                     tarantul = new Tarantul(50, 5, 10, Color.Brown);
@@ -85,21 +103,12 @@ namespace l_r_5_tp
             DrawTarantul();
         }
 
-       
-
-        private void PoisonousTarantul_MouseDown(object sender, MouseEventArgs e)
+        private void AddTarantul_DragEnter(object sender, DragEventArgs e)
         {
-            PoisonousTarantul.DoDragDrop(PoisonousTarantul.Text,
-                DragDropEffects.Move | DragDropEffects.Copy);
-        }
-
-        private void BaseColor_DragEnter(object sender, DragEventArgs e)
-        {
-            if (e.Data.GetDataPresent(typeof(Color)))
+            if (e.Data.GetDataPresent(DataFormats.Text))
                 e.Effect = DragDropEffects.Copy;
             else
                 e.Effect = DragDropEffects.None;
-
         }
 
         private void BaseColor_DragDrop(object sender, DragEventArgs e)
@@ -111,23 +120,13 @@ namespace l_r_5_tp
             }
         }
 
-       
-
-        private void panelColor_MouseDown(object sender, MouseEventArgs e)
-        {
-            (sender as Control).DoDragDrop((sender as Control).BackColor,
-                DragDropEffects.Move | DragDropEffects.Copy);
-        }
-
-        private void DopColor_DragEnter(object sender, DragEventArgs e)
+        private void BaseColor_DragEnter(object sender, DragEventArgs e)
         {
             if (e.Data.GetDataPresent(typeof(Color)))
                 e.Effect = DragDropEffects.Copy;
             else
                 e.Effect = DragDropEffects.None;
-
         }
-
 
         private void DopColor_DragDrop(object sender, DragEventArgs e)
         {
@@ -142,16 +141,18 @@ namespace l_r_5_tp
 
         }
 
-       
-        private void Add_Click(object sender, EventArgs e)
+        private void DopColor_DragEnter(object sender, DragEventArgs e)
         {
-            if (eventAddTarantul != null)
-            {
-                eventAddTarantul(tarantul);
-            }
-            Close();
+            if (e.Data.GetDataPresent(typeof(Color)))
+                e.Effect = DragDropEffects.Copy;
+            else
+                e.Effect = DragDropEffects.None;
+
         }
 
-        
+        private void Form2_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

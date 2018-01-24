@@ -5,13 +5,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LR4_TP
+namespace lr6_tarantul
 {
+
     public class PoisonousTaranyul : Tarantul
     {
         private Color dopColor;
         private bool fangs;
         private bool riskily;
+
 
         public PoisonousTaranyul(int maxSpeed, int maxcountEaten, double weight,
             Color color, bool fangs, bool riskily, Color dopColor) :
@@ -20,6 +22,22 @@ namespace LR4_TP
             this.fangs = fangs;
             this.riskily = riskily;
             this.dopColor = dopColor;
+        }
+
+        public PoisonousTaranyul(string info) : base(info)
+        {
+            string[] strs = info.Split(';');
+            if (strs.Length == 8)
+            {
+                MaxSpeed = Convert.ToInt32(strs[0]);
+                MaxcountEaten = Convert.ToInt32(strs[1]);
+                Weight = Convert.ToInt32(strs[2]);
+                ColorBody = Color.FromName(strs[3]);
+                fangs = Convert.ToBoolean(strs[4]);
+                riskily = Convert.ToBoolean(strs[5]);
+                dopColor = Color.FromName(strs[6]);
+            }
+
         }
         protected override void drawNormalTarantul(Graphics g)
         {
@@ -49,5 +67,15 @@ namespace LR4_TP
             }
 
         }
+        public void SetDopColor(Color color)
+        {
+            dopColor = color;
+        }
+        public override string getInfo()
+        {
+            return MaxSpeed + ";" + MaxcountEaten + ";" + Weight + ";" + ColorBody.Name + ";" + fangs + ";" +
+                riskily + ";" + dopColor.Name;
+        }
     }
 }
+

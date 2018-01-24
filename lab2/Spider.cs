@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace l_r_5_tp
+namespace lr6_tarantul
 {
     public abstract class Spider : IAnimals
     {
@@ -51,5 +51,7 @@ namespace l_r_5_tp
         {
             ColorBody = color;
         }
+
+        public abstract string getInfo();
     }
 }
