@@ -4,8 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace l_r_3_tp
+namespace LR4_TP
 {
+    
     static class Program
     {
         /// <summary>
