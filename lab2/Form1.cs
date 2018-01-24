@@ -8,19 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace l_r_5_tp
+namespace lr6_tarantul
 {
     public partial class Form1 : Form
-
     {
         Terrarium terrarium;
 
         Form2 form;
         public Form1()
         {
-
             InitializeComponent();
-
             terrarium = new Terrarium(5);
 
             for (int i = 1; i < 6; i++)
@@ -40,29 +37,6 @@ namespace l_r_5_tp
                 pictureBox1.Image = bmp;
             }
         }
-        private void button1_Click(object sender, EventArgs e)
-        {
-            terrarium.LevelDown();
-            listBox1.SelectedIndex = terrarium.getCurrentLevel;
-            Draw();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            terrarium.LevelUp();
-            listBox1.SelectedIndex = terrarium.getCurrentLevel;
-            Draw();
-
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            form = new Form2();
-            form.AddEvent(AddTarantul);
-            form.Show();
-        }
-
-        
         private void AddTarantul(IAnimals tarantul)
         {
             if (tarantul != null)
@@ -79,8 +53,30 @@ namespace l_r_5_tp
                 }
             }
         }
-        private void button5_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
+            terrarium.LevelDown();
+            listBox1.SelectedIndex = terrarium.getCurrentLevel;
+            Draw();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            terrarium.LevelUp();
+            listBox1.SelectedIndex = terrarium.getCurrentLevel;
+            Draw();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            form = new Form2();
+            form.AddEvent(AddTarantul);
+            form.Show();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
             if (listBox1.SelectedIndex > -1)
             {
                 string level = listBox1.Items[listBox1.SelectedIndex].ToString();
@@ -102,6 +98,44 @@ namespace l_r_5_tp
                     }
                 }
             }
+        
+    }
+
+        private void сохранитьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (saveFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                if (terrarium.SaveData(saveFileDialog1.FileName))
+                {
+                    MessageBox.Show("Сохранение прошло успешно", "",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Не сохранилось", "",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
+        }
+
+        private void загрузитьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                if (terrarium.LoadData(openFileDialog1.FileName))
+                {
+                    MessageBox.Show("Загрузили", "",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Не загрузили", "",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                Draw();
+            }
+
         }
     }
 }

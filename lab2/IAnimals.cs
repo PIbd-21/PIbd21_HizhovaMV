@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace l_r_5_tp
+namespace lr6_tarantul
 {
     public interface IAnimals
     {
@@ -16,5 +16,7 @@ namespace l_r_5_tp
         int getEaten();
 
         void SetMainColor(Color Color);
+
+        string getInfo();
     }
 }

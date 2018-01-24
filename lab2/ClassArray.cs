@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace l_r_5_tp
+namespace lr6_tarantul
 {
     class ClassArray<T> where T : IAnimals
     {
@@ -64,6 +64,4 @@ namespace l_r_5_tp
             }
         }
     }
-
-
 }
