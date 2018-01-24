@@ -5,13 +5,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LR4_TP
+namespace l_r_5_tp
 {
-   public class Terrarium
+    public class Terrarium
     {
-        
+
         List<ClassArray<IAnimals>> terrariumStages;
-        
+
         int countPlace = 10;
         int placeSizeWidht = 200;
         int placeSizeHeight = 100;
@@ -39,7 +39,7 @@ namespace LR4_TP
         public Terrarium(int countStages)
         {
             terrariumStages = new List<ClassArray<IAnimals>>();
-            for(int i = 0; i < countStages; i++)
+            for (int i = 0; i < countStages; i++)
             {
                 terrariumStages.Add(new ClassArray<IAnimals>(countPlace, null));
             }
@@ -52,7 +52,7 @@ namespace LR4_TP
 
         public IAnimals GetTarantulInTerrarium(int ticket)
         {
-            return terrariumStages[currentLevel] -ticket;
+            return terrariumStages[currentLevel] - ticket;
         }
 
 
@@ -70,7 +70,7 @@ namespace LR4_TP
             }
         }
 
-       
+
 
         private void DrawMarking(Graphics g)
         {
