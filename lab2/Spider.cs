@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace l_r_2_tarantul
+namespace l_r_3_tp
 {
     public abstract class Spider : IAnimals
     {
@@ -23,7 +23,7 @@ namespace l_r_2_tarantul
 
         public virtual double Weight { protected set; get; }
 
-       public abstract void moveTarantul(Graphics g);
+        public abstract void moveTarantul(Graphics g);
 
         public abstract void drawTarantul(Graphics g);
 
@@ -40,7 +40,7 @@ namespace l_r_2_tarantul
                 countEaten += count;
             }
         }
-       public int getEaten()
+        public int getEaten()
         {
             int count = countEaten;
             countEaten = 0;
@@ -48,6 +48,4 @@ namespace l_r_2_tarantul
         }
 
     }
-    
-    
 }

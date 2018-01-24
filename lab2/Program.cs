@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace l_r_2_tarantul
+namespace l_r_3_tp
 {
     static class Program
     {
