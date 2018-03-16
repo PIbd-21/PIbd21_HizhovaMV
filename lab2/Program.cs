@@ -4,8 +4,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace l_r_2_tarantul
+namespace lr6_tarantul
 {
+    public delegate void myDel(lr6_tarantul.IAnimals tarantul);
+
     static class Program
     {
         /// <summary>

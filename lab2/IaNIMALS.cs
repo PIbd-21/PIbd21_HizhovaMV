@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace lr6_tarantul
+namespace LR4_TP
 {
     public interface IAnimals
     {
@@ -15,8 +15,6 @@ namespace lr6_tarantul
         void CapacityEaten(int count);
         int getEaten();
 
-        void SetMainColor(Color Color);
-
-        string getInfo();
+       
     }
 }
